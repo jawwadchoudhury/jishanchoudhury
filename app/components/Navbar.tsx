@@ -41,7 +41,7 @@ export default function Navbar() {
             <li onClick={() => scrolltoHash('about')}><h1 className='link'><p className={poppins.className}>About</p></h1></li>
             <li onClick={() => scrolltoHash('services')}><h1 className='link'><p className={poppins.className}>Services</p></h1></li>
             <li onClick={() => scrolltoHash('faq')}><h1 className='link'><p className={poppins.className}>FAQ</p></h1></li>
-            <li onClick={() => scrolltoHash('about')}><h1 className='link'><p className={poppins.className}>Free Resources</p></h1></li>
+            <li onClick={() => scrolltoHash('free-resources')}><h1 className='link'><p className={poppins.className}>Free Resources</p></h1></li>
             <li onClick={() => scrolltoHash('contact')}><h1 className='link'><p className={poppins.className}>Contact</p></h1></li>
 
             <label htmlFor="check" className="close-menu"><FontAwesomeIcon icon={faXmark} /></label>
