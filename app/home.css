@@ -1,0 +1,143 @@
+#screen {
+    background-image: url('https://static.wixstatic.com/media/11062b_f68602886d71455a85a9705d586b75a0~mv2.jpg/v1/fill/w_980,h_901,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/11062b_f68602886d71455a85a9705d586b75a0~mv2.jpg'); /*https://www.pexels.com/photo/macbook-pro-129208/ FREE - TAKEN BY NAO TRIPONEZ*/
+    /*background-image: url('../public/pexels-photo-129208-medium.jpg');*/
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 100vh;
+}
+
+html {
+    scroll-behavior: smooth;
+    min-height: 100vh;
+}
+
+a {
+    cursor: pointer;
+}
+
+.landingh1 {
+    color: black;
+    margin-top: calc((100vh - 5.5rem) / 2);
+    margin-left: 10vw;
+    font-size: 4vw;
+}
+.desc {
+    margin-top: 1vh;
+    color: black;
+    margin-left: 10vw;
+    font-size: 2.7vw;
+}
+.contactbtn {
+    margin-top: 2vh;
+    text-align: center;
+    width: 20vw;
+    background-color: black;
+    color: white;
+    border-radius: 50px;
+    padding: 10px 10px 10px 10px;
+    margin-left: 10vw;
+    font-size: 2vw;
+}
+
+.header {
+    color: #9F95C4;
+    font-size: 4vw;
+    font-weight: 700;
+}
+
+.faqheader {
+    color: #9F95C4;
+    font-size: 3vw;
+    font-weight: 700;
+}
+
+.column {
+    background-color: black;
+    padding: 15px 15px 15px 15px;
+}
+.column:nth-child(1) {
+    border-bottom: solid 4px #9F95C4;
+}
+.column:nth-child(2) {
+    border-bottom: solid 4px #9F95C4;
+}
+
+.accordionitem {
+    border-bottom: solid 2px #9F95C4;
+    padding-bottom: 5px;
+    font-weight: 700;
+}
+
+.text-foreground {
+    color: #fff
+}
+
+@media (min-width: 1200px) {
+    .landingh1 {
+        font-size: 2.5vw;
+    }
+    .desc {
+        font-size: 1.7vw;
+    }
+    .contactbtn {
+        font-size: 1.5vw;
+        width: 13vw;
+    }
+    .about-me-text {
+        font-size: 1vw
+    }
+    #about {
+        padding-left: 20vw;
+        padding-right: 20vw;
+    }
+    .about-div {
+        --tw-translate-y: 0%;
+    }
+    .column {
+        padding-top: 5vh;
+        width: 33.3%;
+        height: 40vh;
+        font-size: larger;
+    }
+    .row {
+        display: flex;
+    }
+    .column:nth-child(1) {
+        border-bottom: solid 0px #9F95C4;
+        border-right: solid 4px #9F95C4;
+    }
+    .column:nth-child(2) {
+        border-bottom: solid 0px #9F95C4;
+        border-right: solid 4px #9F95C4;
+    }
+
+    .svb {
+        font-size: 1.25vw;
+    }
+}
+
+@media (max-width: 800px) {
+    .about-div-parent {
+        height: auto;
+        
+    }
+    .services-div-parent {
+        height: auto;
+        
+    }
+    .services-div {
+        padding-bottom: 5vh;
+    }
+    .about-div {
+        --tw-translate-y: 0%;
+        padding-top: 5vh;
+        padding-bottom: 5vh;
+    }
+    .svb {
+        font-size: 3vw;
+    }
+}
