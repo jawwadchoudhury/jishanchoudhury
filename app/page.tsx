@@ -18,7 +18,7 @@ export default function Home() {
     
     <div className={poppins.className}>
         <div id="screen" data-src="https://static.wixstatic.com/media/11062b_f68602886d71455a85a9705d586b75a0~mv2.jpg/v1/fill/w_980,h_901,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/11062b_f68602886d71455a85a9705d586b75a0~mv2.jpg">
-            <h1 className='landingh1'><p className={poppins.className}><span className='font-bold'>Jishan's Online Tutoring</span></p></h1>
+            <h1 className='landingh1'><p className={poppins.className}><span className='font-bold'>Jishan&apos;s Online Tutoring</span></p></h1>
             <h2 className='desc'><p className={poppins.className}>Mathematics &amp; Science Tutoring</p></h2>
             <h2 className='contactbtn'><a className={poppins.className}>Contact Me</a></h2>
         </div>
@@ -28,7 +28,7 @@ export default function Home() {
             <h1 className="header">About Me</h1>
             <div className="flex">
             <div className="relative w-[100vw]">
-            <Image src={'/images/jishan.png'} alt="Jishan Choudhury" layout={'fill'} objectFit={'contain'} />
+            <Image src={'/images/jishan.png'} alt="Jishan Choudhury" fill={true} objectFit={'contain'} />
             </div>
             <p className="about-me-text p-[2vw] bg-black text-[1.5vw] font-semibold">
               Hello, thank you for visiting my website!<br/><br/>
@@ -85,10 +85,10 @@ export default function Home() {
                 I follow scientific-based teaching strategies including active recall. This means students will have a lot exam practice questions from me, to help them apply their knowledge and learn exam technique.<br/><br/>I also teach topics through PowerPoint Presentations. All my lessons will be very interactive to keep students engaged and to promote thinking for an effective learning experience.<br/><br/>I teach based on the students exam board specification (e.g. AQA) and using exam board approved textbooks.
               </AccordionItem>
               <AccordionItem key="7" aria-label="Do I set homework?" title="Do I set homework?" className="accordionitem">
-                Hello World!
+                At the student and parent/guardian discretion - yes I do! I believe setting worksheets is important to consolidate what we have covered in the lesson. 
               </AccordionItem>
               <AccordionItem key="8" aria-label="How does payment work?" title="How does payment work?">
-                Hello World!
+                Lesson timings will be arranged before the weekend and communicated to you. Following this, payment will be expected to be made into my bank account at least 24 hours prior to the lesson to confirm the booking. If payment is failed to be made, the lesson may be cancelled. You may receive text messages as a prompt to remind you about lesson timings and payment.
               </AccordionItem>
             </Accordion>
           </div>
