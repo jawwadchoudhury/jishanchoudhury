@@ -1,113 +1,99 @@
+'use client'
 import Image from "next/image";
+import './home.css'
+import { Poppins } from "next/font/google";
+import {Accordion, AccordionItem} from "@nextui-org/accordion";
+
+const poppins = Poppins({
+  subsets: ['latin'], 
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"]
+})
 
 export default function Home() {
+  const scrolltoHash = function (element_id: string) {
+    const element = document.getElementById(element_id)
+    element?.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
+  }
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    
+    <div className={poppins.className}>
+        <div id="screen" data-src="https://static.wixstatic.com/media/11062b_f68602886d71455a85a9705d586b75a0~mv2.jpg/v1/fill/w_980,h_901,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/11062b_f68602886d71455a85a9705d586b75a0~mv2.jpg">
+            <h1 className='landingh1'><p className={poppins.className}><span className='font-bold'>Jishan's Online Tutoring</span></p></h1>
+            <h2 className='desc'><p className={poppins.className}>Mathematics &amp; Science Tutoring</p></h2>
+            <h2 className='contactbtn'><a className={poppins.className}>Contact Me</a></h2>
         </div>
-      </div>
 
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+        <div className="about-div-parent h-[85vh] bg-[#3b3b3b] text-white py-[2vh]" id="about">
+          <div className="about-div translate-y-[25%]">
+            <h1 className="header">About Me</h1>
+            <div className="flex">
+            <div className="relative w-[100vw]">
+            <Image src={'/images/jishan.png'} alt="Jishan Choudhury" layout={'fill'} objectFit={'contain'} />
+            </div>
+            <p className="about-me-text p-[2vw] bg-black text-[1.5vw] font-semibold">
+              Hello, thank you for visiting my website!<br/><br/>
+              I am a student doctor at Barts & The London Medical School; I have completed 4 years of MBBS and have an MSc in Regenerative Medicine.<br/><br/>
+              I am also the former CEO of JC Tuition (2019-2022), a tutoring agency that has helped dozens of students achieve outstanding results around the country.<br/><br/>
+              Prior to medical school, I have always been passionate about education. At GCSEs I achieved 2 A*s, 7As, 1B and during my A-Levels I achieved 3A*s (Biology, Chemistry, Maths).<br/><br/>
+              My current passion is teaching and helping students around the UK achieve excellence in mathematics and science! I have 4+ years of tutoring experience in all age groups and have received extremely positive feedback.
+            </p>
+          </div>
+          </div>
+        </div>
 
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+        <div className="h-[85vh] bg-[#2b2b2b] text-white px-[4vw] text-center services-div-parent" id="services">
+          <div className="services-div">
+            <h1 className="header pt-[5vh] text-left">My Services</h1>
+            <div className="row block mb-[50px]">
+              <div className="column w-[100%]">
+                <h1 className="text-[#9F95C4] font-black">Primary School (KS1/KS2)</h1>
+                <p className="font-semibold"><br/>Extra support in literacy and numeracy for students preparing to sit their SATS.<br/><br/><br/>Rate: £20/hr</p>
+              </div>
+              <div className="column w-[100%]">
+                <h1 className="text-[#9F95C4] font-black">Secondary School (KS3/KS4)</h1>
+                <p className="font-semibold"><br/>Science and mathematics tutoring for students in their secondary school years including those preparing for their GCSEs.<br/><br/>Rate: £30/hr</p>
+              </div>
+              <div className="column w-[100%]">
+                <h1 className="text-[#9F95C4] font-black">College (KS5)</h1>
+                <p className="font-semibold"><br/>Science and mathematics tutoring for students sitting their A-Levels to help them achieve the grades they need for university or work.<br/><br/>Rate: £40/hr</p>
+              </div>
+            </div>
+              <a onClick={() => scrolltoHash('faq')} className="bg-black text-[#9F95C4] text-[2vw] rounded-[50px] p-[10px] svb">Learn More</a>
+          </div>
+        </div>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+        <div className="h-[85vh] bg-[#3b3b3b] text-[#9F95C4] font-medium px-[4vw]" id="faq">
+          <div className="faq-div">
+            <h1 className="faqheader pt-[5vh] pb-[2vh] text-left">Frequently Asked Questions</h1>
+            <Accordion selectionMode="multiple" className="accordion bg-black text-[#9F95C4] font-medium opacity-100">
+              <AccordionItem key="1" aria-label="What software do I tutor on?" title="What software do I tutor on?" className="accordionitem">
+                I use Zoom. Students are sent a link prior to their first lesson which we can reuse weekly. Zoom is a perfect application as we can share screens, and students can interact via a whiteboard. We can also send files over such as PowerPoint presentations and worksheets. 
+              </AccordionItem>
+              <AccordionItem key="2" aria-label="What days do I tutor?" title="What days do I tutor?" className="accordionitem">
+                Due to a very booked up schedule, my services are currently only available on Sundays.
+              </AccordionItem>
+              <AccordionItem key="3" aria-label="Is tutoring 1-to-1 or in a group?" title="Is tutoring 1-to-1 or in a group?" className="accordionitem">
+                The prices quoted on the website are for 1-to-1 tutoring. Please contact me if you are interested in group tutoring and I can provide you with a quote.
+              </AccordionItem>
+              <AccordionItem key="4" aria-label="Is the first lesson free?" title="Is the first lesson free?" className="accordionitem">
+                Yes! All new students get a one hour free of charge trial lesson with me before making any commitments. This is important so that students can experience my teaching style and methods.
+              </AccordionItem>
+              <AccordionItem key="5" aria-label="Will the hourly rate I pay for lessons change?" title="Will the hourly rate I pay for lessons change?" className="accordionitem">
+                If you are already doing regular lessons with me, then no, the hourly rate will remain the same as your first lesson, even if the quoted prices on my website are updated. There is a slight exception to this if you are shifting from levels of study (e.g. if you are progressing from primary school to secondary school), then you will need to pay the new rate for your level of study.<br/><br/>The prices on the website may be updated regularly, this reflects my current demand and scheduling saturation. The prices quoted on my website also reflect the quality of my lessons and my preparation time.
+              </AccordionItem>
+              <AccordionItem key="6" aria-label="What is my tutoring style?" title="What is my tutoring style?" className="accordionitem">
+                I follow scientific-based teaching strategies including active recall. This means students will have a lot exam practice questions from me, to help them apply their knowledge and learn exam technique.<br/><br/>I also teach topics through PowerPoint Presentations. All my lessons will be very interactive to keep students engaged and to promote thinking for an effective learning experience.<br/><br/>I teach based on the students exam board specification (e.g. AQA) and using exam board approved textbooks.
+              </AccordionItem>
+              <AccordionItem key="7" aria-label="Do I set homework?" title="Do I set homework?" className="accordionitem">
+                Hello World!
+              </AccordionItem>
+              <AccordionItem key="8" aria-label="How does payment work?" title="How does payment work?">
+                Hello World!
+              </AccordionItem>
+            </Accordion>
+          </div>
+        </div>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    </div>
   );
 }

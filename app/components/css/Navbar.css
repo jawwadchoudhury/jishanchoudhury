@@ -1,0 +1,155 @@
+/* Title */
+/*
+.title {
+    color: white;
+    opacity: 70%;
+    text-decoration: none;
+    animation: blink .5s step-end infinite alternate;
+    border-right: 2.5px solid;
+    padding-right: 2.5px;
+    border-color: rgba(255, 255, 255, 70%);
+    transition: .5s ease-in-out;
+    margin-top: .5rem;
+    padding-left: 5vw;
+    
+}
+
+.title:hover {
+    color: white;
+    opacity: 100%;
+    padding-right: 10;
+    border-color: rgba(255, 255, 255, 100%);
+    transition: .5s ease-in-out;
+}
+*/
+/* Links */
+/*
+li {
+    position: relative;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 25px;
+    letter-spacing: -0.13px;
+    text-decoration: none;
+    margin-left: 2.5rem;
+    transition: all 0.5s ease;
+}
+
+.link {
+    text-decoration: none;
+    position: relative;
+    color: white;
+}
+*/
+
+/* Animations */
+/*
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+*/
+nav {
+    user-select: none;
+  }
+  .close-menu,
+  .open-menu {
+    position: absolute;
+    cursor: pointer;
+    display: none;
+  }
+  
+  .open-menu {
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    color: #fff;
+    transition: .2s ease-in-out;
+  }
+  
+  .open-menu:hover {
+    color: #9F95C4;
+      transition: .2s ease-in-out;
+  }
+  
+  .close-menu {
+    top: 20px;
+    right: 20px;
+    color: #fff;
+    transition: .3s ease-in-out;
+  }
+  
+  .close-menu:hover {
+      color: #9F95C4;
+      transition: .3s ease-in-out;
+  }
+  
+  #check {
+    display: none;
+  }
+  
+  .title {
+      font-weight: 700;
+      color: #9F95C4;
+      font-size: 1.5rem;
+      transition: .2s ease-in-out;
+      user-select: none;
+  }
+  
+  .title p {
+    user-select: none;
+  }
+  
+  .title:hover {
+    cursor: pointer;
+  }
+  
+  .link {
+      font-size: 1.1rem;
+      border-bottom: solid 2px rgba(159,149,196,0);
+      color: white;
+      opacity: 60%;
+      transition: .3s ease-in-out;
+  }
+  
+  .link:hover {
+      color: #9F95C4;
+      border-bottom-color: rgba(159,149,196,255);
+      opacity: 100%;
+      cursor: pointer;
+      transition: .3s ease-in-out;
+  }
+  @media (max-width: 1200px) {
+    .menu {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 50%;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      right: -100%;
+      z-index: 100;
+      background-color: #1a1a1a;
+      transition: all 0.5s ease-in-out;
+      font-size: 24px;
+      padding-right: 5%;
+    }
+  
+    .link {
+      padding: 10px 5px 0px 5px;
+      color: #fff
+    }
+  
+    .close-menu,
+    .open-menu {
+      display: block;
+    }
+  
+    #check:checked ~ .menu {
+      right: 0;
+    }
+  }
+  
