@@ -6,7 +6,7 @@ import { Metadata } from 'next'
 config.autoAddCss = false
 
 export const metadata: Metadata = {
-  title: "Jishan Choudhury",
+  title: "Online Tutoring | Jishan Choudhury",
   description: "An online tutor for GCSE, SATS and A-LEVELS.",
 };
 

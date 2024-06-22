@@ -1,15 +1,58 @@
 'use client'
 import Image from "next/image";
 import './home.css'
-import { Poppins } from "next/font/google";
+import { Poppins, IBM_Plex_Mono } from "next/font/google";
 import {Accordion, AccordionItem} from "@nextui-org/accordion";
+import Link from "next/link";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import React from "react";
+import { checkbox } from "@nextui-org/theme";
 
 const poppins = Poppins({
   subsets: ['latin'], 
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"]
 })
 
+const ibmPlexMono = IBM_Plex_Mono({
+  subsets: ['latin'], 
+  weight: ["500"]
+})
 export default function Home() {
+  const [result, setResult] = React.useState("");
+  
+  const onSubmit = async (event:any) => {
+    event.preventDefault();
+    setResult("Sending....");
+    const formData = new FormData(event.target);
+
+    formData.append("access_key", "f4edd918-4a18-49fe-ac64-21548334edd5");
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      setResult("Your message has been sent!");
+      event.target.reset();
+    } else {
+      console.log("Error", data);
+      setResult(data.message);
+    }
+  };
+
+  var settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 2,
+    slidesToScroll: 1,
+  };
+
   const scrolltoHash = function (element_id: string) {
     const element = document.getElementById(element_id)
     element?.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
@@ -94,41 +137,130 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="h-[85vh] bg-[#2b2b2b] text-white px-[4vw] text-center" id="free-resources">
+        <div className="h-[120vh] bg-[#2b2b2b] text-white px-[4vw] text-center" id="free-resources">
           <div className="free-resources-div">
-            <h1 className="fr-header pt-[5vh]">Free Resources (this ones broken on computer for some reason????)</h1>
+            <h1 className="fr-header pt-[5vh]">Free Resources</h1>
             <h1 className="fr-subheader py-[1vh]">eBooks</h1>
               <div className="flex ebooks-section">
                 <div className="relative w-[50%]">
-                  <img src="/ebooks/Getting into medical school guide cover.webp"/>
+                  <img src="/ebooks/Getting into medical school guide cover.webp" className="block m-auto"/>
                   <a href={'/ebooks/Getting Into Medical School Guide.pdf'} target="_blank"  rel="noopener noreferrer" className="bg-[#9F95C4] p-2">Download</a>
                 </div>
                 <div className="relative w-[50%]">
-                  <img src="/ebooks/Scientific based study strategies cover.webp"/>
+                  <img src="/ebooks/Scientific based study strategies cover.webp" className="block m-auto"/>
                   <a href={'/ebooks/Scientific-based study strategies.pdf'} target="_blank"  rel="noopener noreferrer" className="bg-[#9F95C4] p-2">Download</a>
                 </div>
             </div>
             
-            <h1 className="fr-subheader py-[1vh]">Video Playlists</h1>
-              <div className="flex">
-                <div className="relative w-[50%]">
-                  <img src="/ebooks/Scientific based study strategies cover.webp"/>
-                  <a href={'/ebooks/Getting Into Medical School Guide.pdf'} target="_blank"  rel="noopener noreferrer" className="bg-[#9F95C4] p-2">Download</a>
+            <h1 className="fr-subheader py-[2vh]">Video Playlists</h1>
+              <div className="flex resource-row pb-[2vh]"> 
+                <div className="relative w-[30vw] resource-item block m-auto">
+                  <Link href={'https://www.youtube.com/playlist?list=PLOFrvNNSdibalBRwryMTFboarKgPavFX0'} target="_blank"><img src="/images/playlist/1.webp" className="block m-auto w-[25vw] playlist-pic"/></Link>
+                  <p className="text-[#9F95C4] text-center text-[1.75vw] font-semibold playlist-caption">Study Tips</p>
                 </div>
-                <div className="relative w-[50%]">
-                  <img src="/ebooks/Scientific based study strategies cover.webp"/>
-                  <a href={'/ebooks/Scientific-based study strategies.pdf'} target="_blank"  rel="noopener noreferrer" className="bg-[#9F95C4] p-2">Download</a>
+                <div className="relative w-[30vw] resource-item block m-auto">
+                  <Link href={'https://www.youtube.com/playlist?list=PLOFrvNNSdibalBRwryMTFboarKgPavFX0'} target="_blank"><img src="/images/playlist/2.webp" className="block m-auto w-[25vw] playlist-pic"/></Link>
+                  <p className="text-[#9F95C4] text-center text-[1.75vw] font-semibold playlist-caption">Anki Masterclass</p>
                 </div>
-                <div className="relative w-[50%]">
-                  <img src="/ebooks/Scientific based study strategies cover.webp"/>
-                  <a href={'/ebooks/Scientific-based study strategies.pdf'} target="_blank"  rel="noopener noreferrer" className="bg-[#9F95C4] p-2">Download</a>
+                <div className="relative w-[30vw] resource-item block m-auto">
+                  <Link href={'https://www.youtube.com/playlist?list=PLOFrvNNSdibalBRwryMTFboarKgPavFX0'} target="_blank"><img src="/images/playlist/3.webp" className="block m-auto w-[25vw] playlist-pic"/></Link>
+                  <p className="text-[#9F95C4] text-center text-[1.75vw] font-semibold playlist-caption">Biology</p>
                 </div>
               </div>
-
+              <div className="flex resource-row">
+                <div className="relative w-[30vw] resource-item block m-auto">
+                  <Link href={'https://www.youtube.com/playlist?list=PLOFrvNNSdibalBRwryMTFboarKgPavFX0'} target="_blank"><img src="/images/playlist/4.webp" className="block m-auto w-[25vw] playlist-pic"/></Link>
+                  <p className="text-[#9F95C4] text-center text-[1.75vw] font-semibold playlist-caption">Chemistry</p>
+                </div>
+                <div className="relative w-[30vw] resource-item block m-auto">
+                  <Link href={'https://www.youtube.com/playlist?list=PLOFrvNNSdibalBRwryMTFboarKgPavFX0'} target="_blank"><img src="/images/playlist/5.webp" className="block m-auto w-[25vw] playlist-pic"/></Link>
+                  <p className="text-[#9F95C4] text-center text-[1.75vw] font-semibold playlist-caption ">Physics</p>
+                </div>
+                <div className="relative w-[30vw] resource-item block m-auto">
+                  <Link href={'https://www.youtube.com/playlist?list=PLOFrvNNSdibalBRwryMTFboarKgPavFX0'} target="_blank"><img src="/images/playlist/6.webp" className="block m-auto w-[25vw] playlist-pic"/></Link>
+                  <p className="text-[#9F95C4] text-center text-[1.75vw] font-semibold playlist-caption">Mathematics</p>
+                </div>
+              </div>
 
             </div>
           </div>
 
+
+        <div className="h-[85vh] bg-[#3b3b3b] text-[#9F95C4] font-medium px-[4vw]" id="testimonials">
+          <div className="testimonials-div">
+            <h1 className="header pt-[5vh] pb-[2vh] text-left">My Testimonials</h1>
+            <Slider {...settings} className="h-[60vh]">
+              <div className="test-div relative">
+                <h1>&quot;Jishan was my maths tutor and Rengoni was my physics. They both helped me so much in both subjects. They explained things nice and simply so I would understand even though physics is a complex subject to explain. Also made me do enough practice for me to fully understand the topic. Whenever I asked for help outside of tuition they would give quick detailed responses with videos which is great. 100% would recommend to anyone&quot;<p className="absolute bottom-[20px] font-light">- Anonymous (Student)</p></h1>
+              </div>
+              <div className="test-div">
+                <h1>&quot;He is a great tutor, he is very patient with the students, I would highly recommend him as a teacher as he is very knowledgeable, he also strives on going an extra mile to make sure that the students understand the lessons and going over things in school they don&apos;t understand&quot;<p className="absolute bottom-[20px] font-light">- Farhanaz Ahmed (Parent)</p></h1>
+              </div>
+              <div className="test-div">
+                <h1>&quot;I appreciate JC Tuition for helping me develop my knowledge of Maths and Science. I enjoy the lessons Jishan and Carl provide because it makes me feel positive that I could achieve the best grades I can.&quot;<p className="absolute bottom-[20px] font-light">- Suraya Islam (Student)</p></h1>
+              </div>
+              <div className="test-div">
+                <h1>&quot;The explanation for my maths A level topics were very clear and understandable and I had seen an improvement with my grades.&quot;<p className="absolute bottom-[20px] font-light">- Anonymous (Student)</p></h1>
+              </div>
+              <div className="test-div">
+                <h1>&quot;Simply amazing. These tutors have had a lot of experience and it&apos;s obvious from their résumés. Jishan in particular taught me the most efficient way of learning I have ever seen; am so happy with this service and would recommend it 110%.&quot;<p className="absolute bottom-[20px] font-light">- Anonymous (Student)</p></h1>
+              </div>
+              <div className="test-div">
+                <h1>&quot;helps me understand maths a lot and also are very friendly&quot;<p className="absolute bottom-[20px] font-light">- Dani Trickett (Student)</p></h1>
+              </div>
+              <div className="test-div">
+                <h1>&quot;Jishan and Carl at JC Tuition are providing excellent tuition for my daughter. They work hard to identify her strengths and weaknesses and help fill in any gaps in her in her knowledge. They maintain a professional and yet friendly manner, and this helps students feel comfortable and confident to learn. I have peace of mind knowing they are working hard to bring out the best of my child&apos;s abilities&quot;<p className="absolute bottom-[20px] font-light">- Shopna Islam (Parent)</p></h1>
+              </div>
+            </Slider>
+          </div>
+        </div>
+
+        <div className="h-[85vh] bg-[#2b2b2b] text-[#fff] font-medium px-[4vw]" id="contact">
+          <div className="contact-div">
+            <h1 className="faqheader pt-[5vh] pb-[2vh] text-center">Book your <b className="underline">free</b> trial lesson</h1>
+            <form onSubmit={onSubmit} className="form flex m-auto justify-center text-[2vw]">
+              <div className="">
+                <div className="flex">
+                  <input type="text" name="First Name" required className="ol-input" placeholder="First Name"/>
+                  <input type="text" name="Last Name" required className="ol-input" placeholder="Last Name"/>
+                </div>
+                <div className="flex">
+                  <input type="email" name="Email" required className="ol-input" placeholder="Email"/>
+                  <input type="tel" name="Phone Number" required className="ol-input" placeholder="Phone Number"/>
+                </div>
+                <textarea name="Message" required className="sl-input resize-none" placeholder="Message" rows={4}/>
+              </div>
+              <div className="text-md ml-10 second-col-form">
+                <div className="">
+                  <p className="los-head-label text-[2.5vw] mb-2"><b>Level of Study</b></p>
+                  <div className="block">
+                    <label className="checkbox-container">
+                      <input type="checkbox" name="Study Level"/>
+                      <span className="checkmark"></span>
+                      <p className="pl-[5vw] mb-[1.5vh] pt-[1vh] los-label">Primary</p>
+                    </label>
+                    <label className="checkbox-container">
+                      <input type="checkbox" name="Study Level"/>
+                      <span className="checkmark"></span>
+                      <p className="pl-[5vw] mb-[1.5vh] pt-[1vh] los-label">Secondary</p>
+                    </label>
+                    <label className="checkbox-container">
+                      <input type="checkbox" name="Study Level"/>
+                      <span className="checkmark"></span>
+                      <p className="pl-[5vw] mb-[1.5vh] pt-[1vh] los-label">College</p>
+                    </label>
+                    <button type="submit" className="text-[#9F95C4] bg-black py-3 w-[100%] rounded-[50px] outline-none">Send</button>
+                  </div>
+                  
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div className="footer bg-[#1b1b1b] text-white p-5 w-full text-center">
+          <Link href={'/license'} target="_blank" className="footer-1 text-[2vw] block m-auto mb-[.5vh]">© 2022-2024 by Jishan Choudhury</Link>
+          <a href="https://jawwadchoudhury.co.uk" target="_blank" className="footer-2 text-[1.5vw] flex justify-center">Website by<p className={ibmPlexMono.className}><b className="pl-[5px]">Jawwad Choudhury</b></p></a>
+        </div>
     </div>
   );
 }
