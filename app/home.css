@@ -257,15 +257,11 @@ display: block;
     
       }
     .checkbox-container .checkmark:after {
-        border-color: #9F95C4;
-        left: .7vw;
-        top: -.2vh;
-        width: 1.5vw;
-        height: 3vw;
-        border-width: 0 0.5vw 0.5vw 0;
-        -webkit-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-        transform: rotate(45deg);
+        left: .6vw;
+        top: 0vh;
+        width: .75vw;
+        height: 1.5vw;
+        border-width: 0 0.3vw 0.3vw 0;
     }
     .los-label {
         padding-left: 2.25vw;

@@ -24,7 +24,7 @@ export default function Home() {
   
   const onSubmit = async (event:any) => {
     event.preventDefault();
-    setResult("Sending....");
+    setResult("Sending...");
     const formData = new FormData(event.target);
 
     formData.append("access_key", "f4edd918-4a18-49fe-ac64-21548334edd5");
@@ -41,7 +41,7 @@ export default function Home() {
       event.target.reset();
     } else {
       console.log("Error", data);
-      setResult(data.message);
+      setResult("Something has gone wrong, please email choudhuryjishan@hotmail.co.uk with your details above.");
     }
   };
 
@@ -235,26 +235,26 @@ export default function Home() {
                   <p className="los-head-label text-[2.5vw] mb-2"><b>Level of Study</b></p>
                   <div className="block">
                     <label className="checkbox-container">
-                      <input type="checkbox" name="Study Level"/>
+                      <input type="checkbox" name="primary"/>
                       <span className="checkmark"></span>
                       <p className="pl-[5vw] mb-[1.5vh] pt-[1vh] los-label">Primary</p>
                     </label>
                     <label className="checkbox-container">
-                      <input type="checkbox" name="Study Level"/>
+                      <input type="checkbox" name="secondary"/>
                       <span className="checkmark"></span>
                       <p className="pl-[5vw] mb-[1.5vh] pt-[1vh] los-label">Secondary</p>
                     </label>
                     <label className="checkbox-container">
-                      <input type="checkbox" name="Study Level"/>
+                      <input type="checkbox" name="college"/>
                       <span className="checkmark"></span>
                       <p className="pl-[5vw] mb-[1.5vh] pt-[1vh] los-label">College</p>
                     </label>
                     <button type="submit" className="text-[#9F95C4] bg-black py-3 w-[100%] rounded-[50px] outline-none">Send</button>
                   </div>
-                  
                 </div>
               </div>
             </form>
+            <span className="text-center block">{result}</span>
           </div>
         </div>
         <div className="footer bg-[#1b1b1b] text-white p-5 w-full text-center">
