@@ -23,6 +23,11 @@ export default function Navbar() {
     element?.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
   }
 
+  const scrolltoHash2 = function (element_id: string) {
+    const element = document.getElementById(element_id)
+    element?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "nearest" });
+  }
+
   return (
     <div>
       <nav className="bg-[#3b3b3b] fixed w-[100vw] z-20 top-0 left-0 h-[15vh]">
@@ -41,7 +46,7 @@ export default function Navbar() {
             <li onClick={() => scrolltoHash('about')}><h1 className='link'><p className={poppins.className}>About</p></h1></li>
             <li onClick={() => scrolltoHash('services')}><h1 className='link'><p className={poppins.className}>Services</p></h1></li>
             <li onClick={() => scrolltoHash('faq')}><h1 className='link'><p className={poppins.className}>FAQ</p></h1></li>
-            <li onClick={() => scrolltoHash('free-resources')}><h1 className='link'><p className={poppins.className}>Free Resources</p></h1></li>
+            <li onClick={() => scrolltoHash2('free-resources')}><h1 className='link'><p className={poppins.className}>Free Resources</p></h1></li>
             <li onClick={() => scrolltoHash('contact')}><h1 className='link'><p className={poppins.className}>Contact</p></h1></li>
 
             <label htmlFor="check" className="close-menu"><FontAwesomeIcon icon={faXmark} /></label>
